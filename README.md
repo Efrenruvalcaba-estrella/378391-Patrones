@@ -18,3 +18,14 @@ WHERE cve_ent = 2
   AND (per_ocu LIKE '51 a 100%' OR per_ocu LIKE '101 a 250%' OR per_ocu LIKE '251%')
 GROUP BY municipio
 ORDER BY fabricas_grandes DESC;
+
+- 3. Top 20 de actividades económicas predominantes en Baja California
+SELECT 
+    codigo_act,
+    nombre_act,
+    COUNT(*) AS total
+FROM public.denue_inegi_oficial
+WHERE cve_ent = 2
+GROUP BY codigo_act, nombre_act
+ORDER BY total DESC
+LIMIT 20;
