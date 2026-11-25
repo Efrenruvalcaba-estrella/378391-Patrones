@@ -9,7 +9,7 @@ WHERE cve_ent = 2
 GROUP BY municipio
 ORDER BY total_negocios DESC;
 
-- 2. Identificación de empresas grandes (+50 empleados) por municipio
+-- 2. Identificación de empresas grandes (+50 empleados) por municipio
 SELECT 
     municipio,
     COUNT(*) AS fabricas_grandes
