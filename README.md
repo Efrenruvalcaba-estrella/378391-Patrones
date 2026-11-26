@@ -29,3 +29,11 @@ WHERE cve_ent = 2
 GROUP BY codigo_act, nombre_act
 ORDER BY total DESC
 LIMIT 20;
+
+-- 4. Auditoría de calidad de datos (Registros sin colonia o sin código postal)
+SELECT 
+    COUNT(*) AS total_registros_bc,
+    COUNT(CASE WHEN nomb_asent IS NULL OR nomb_asent = '' THEN 1 END) AS sin_colonia,
+    COUNT(CASE WHEN cod_postal IS NULL OR cod_postal = '' THEN 1 END) AS sin_cp
+FROM public.denue_inegi_oficial
+WHERE cve_ent = 2;
